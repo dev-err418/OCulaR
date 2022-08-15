@@ -9,8 +9,9 @@ import Spinner from 'react-native-loading-spinner-overlay';
 
 const {width, height} = Dimensions.get("window");
 
+// function that will draw green boxes arround each word.
 const BoundingBox = ({t, l, b, r, coef}) => {
-
+// adding or removing few pixels to have bigger boxes
    t = Number(parseInt(t*coef)) - 2
    l = Number(parseInt(l*coef)) - 2
    b = Number(parseInt(b*coef)) + 3
@@ -28,6 +29,7 @@ const BoundingBox = ({t, l, b, r, coef}) => {
 const CustomImagePicker = ({onSubmit}) => {
    const [image, setImage] = useState(null);
    const [text, setText] = useState<string>("Add an image");
+// the coef is the ratio between the actual image size and the size of the displayed image in the app
    const [coef, setCoef] = useState<number | undefined>(undefined)
    const [positions, setPositions] = useState([])
    const [loading, setLoading] = useState<boolean>(false)
